@@ -29,8 +29,7 @@ const game = () => {
   let computerScore = 0;
 
   for (let i = 0; i < 5; i++) {
-    const playerSelection = prompt(`Enter your choice: Rock, Paper or Scissors`);
-
+    const playerSelection = prompt(`Enter your choice: Rock, Paper or Scissors`).capitalize();
     const computerSelection = getComputerChoice();
     const result = playRound(playerSelection, computerSelection);
     console.log(result);
@@ -49,8 +48,11 @@ const game = () => {
   } else {
     console.log("It's a tie!");
   }
+};
 
-
+// Helper function
+String.prototype.capitalize = function() {
+  return this.charAt(0).toUpperCase() + this.slice(1).toLowerCase();
 };
 
 game();
