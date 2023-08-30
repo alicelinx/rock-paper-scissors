@@ -67,6 +67,7 @@ h1 {
 }
 
 .restart-button {
+  all: unset;
   background-color: lavender;
   border: 2px solid rgb(193, 137, 198);
   cursor: pointer;
@@ -75,7 +76,6 @@ h1 {
   border-radius: 10px;
   width: 100px;
   font-family: 'Fjalla One', sans-serif;
-  color: black;
 }
 
 .restart-button:hover {
