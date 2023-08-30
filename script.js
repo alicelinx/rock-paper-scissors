@@ -19,7 +19,7 @@ const getComputerChoice = () => {
 };
 
 const updateScore = () => {
-  scoreStatus.textContent = `Player: ${playerScore}/5 vs Computer: ${computerScore}/5`;
+  scoreStatus.textContent = `YOU - ${playerScore}/5 : ${computerScore}/5 - BOT`;
 };
 
 const playRoundLogic = (playerSelection, computerSelection) => {
@@ -33,9 +33,9 @@ const playRoundLogic = (playerSelection, computerSelection) => {
     (playerSelection === 'paper' && computerSelection === 'scissors') ||
     (playerSelection === 'scissors' && computerSelection === 'rock')
   ) {
-    return `You lose... ${playerSelection} loses to ${computerSelection} 🙁`;
+    return `Oh no! You lose... ☹︎`;
   }
-  return `You win! ${playerSelection} beats ${computerSelection} 🥳`;
+  return `Hooray! You win! ☺︎`;
 
 };
 
@@ -56,9 +56,11 @@ const playRound = (e) => {
   updateScore();
 
   if (playerScore >= 5) {
-    resultDisplay.textContent = 'You won the game! 🎉';
+    resultDisplay.textContent = '🎉 You won the game! 🎉';
+    buttons.forEach(button => button.removeEventListener('click', playRound));
   } else if (computerScore >= 5) {
-    resultDisplay.textContent = 'Computer won the game! 💀';
+    resultDisplay.textContent = '💀 Bot won the game! 💀';
+    buttons.forEach(button => button.removeEventListener('click', playRound));
   }
 };
 
@@ -68,6 +70,7 @@ const restartGame = () => {
   updateScore();
   resultDisplay.textContent = null;
   gestureDisplay.textContent = null;
+  buttons.forEach(button => button.addEventListener('click', playRound));
 };
 
 restartButton.addEventListener('click', restartGame);
