@@ -75,6 +75,7 @@ h1 {
   border-radius: 10px;
   width: 100px;
   font-family: 'Fjalla One', sans-serif;
+  color: black;
 }
 
 .restart-button:hover {
